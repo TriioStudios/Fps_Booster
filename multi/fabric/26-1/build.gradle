@@ -1,0 +1,49 @@
+plugins {
+    id 'fabric-loom' version '1.16.2'
+    id 'maven-publish'
+}
+
+version = mod_version
+group = mod_group_id
+
+base { archivesName = "${mod_id}-fabric-${minecraft_version}" }
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(25) }
+    withSourcesJar()
+}
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    // Mojang stopped publishing client_mappings for MC 26.1.x, and FabricMC hasn't
+    // shipped yarn/intermediary yet. We synthesize a Tiny v2 from Forge's cached
+    // TSRG2 (obfuscated -> Mojmap) so loom can run.
+    mappings files("build/mappings/yarn-${minecraft_version}+local-v2.jar")
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    // fabric-api intentionally omitted: it ships sources against real intermediary
+    // names (class_xxx) which would conflict with our Mojmap-as-intermediary stand-in.
+    // FPS Booster's mixins target only vanilla classes, so we don't need fabric-api.
+}
+
+processResources {
+    inputs.property "version", mod_version
+    inputs.property "mod_id", mod_id
+    inputs.property "mod_name", mod_name
+
+    filesMatching("fabric.mod.json") {
+        expand "version": mod_version, "mod_id": mod_id, "mod_name": mod_name, "minecraft_version": minecraft_version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+jar {
+    from('LICENSE') { rename { "${it}_${base.archivesName.get()}" } }
+}
