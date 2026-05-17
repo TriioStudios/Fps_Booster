@@ -11,5 +11,11 @@ plugins {
 
 rootProject.name = 'fpsbooster'
 
+include('neoforge-26-1')
+project(':neoforge-26-1').projectDir = file('multi/neoforge/26-1')
+
+include('neoforge-26-1-1')
+project(':neoforge-26-1-1').projectDir = file('multi/neoforge/26-1-1')
+
 include('neoforge-26-1-2')
 project(':neoforge-26-1-2').projectDir = file('multi/neoforge/26-1-2')
