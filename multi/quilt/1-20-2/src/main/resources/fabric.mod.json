@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "Client-side FPS optimizations: occlusion culling for entities, block entities, particles, item-drop animations; batched chunk updates; pooled hot-path math.",
+  "license": "All Rights Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.fpsbooster.FpsBoosterFabric"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "fpsbooster.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17"
+  }
+}
