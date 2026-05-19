@@ -1,0 +1,22 @@
+{
+  "fpsbooster.config.enabled": "Master toggle",
+  "fpsbooster.config.enabled.tooltip": "Turn all FPS Booster optimizations on or off",
+
+  "fpsbooster.config.cullEntities": "Cull hidden entities",
+  "fpsbooster.config.cullEntities.tooltip": "Skip rendering entities that are behind walls or outside your view",
+
+  "fpsbooster.config.cullBlockEntities": "Cull hidden block entities",
+  "fpsbooster.config.cullBlockEntities.tooltip": "Skip rendering chests, signs and similar blocks you cannot see",
+
+  "fpsbooster.config.cullParticles": "Cull hidden particles",
+  "fpsbooster.config.cullParticles.tooltip": "Skip particles spawned behind walls or off-screen",
+
+  "fpsbooster.config.skipOffscreenItemAnim": "Skip off-screen item animations",
+  "fpsbooster.config.skipOffscreenItemAnim.tooltip": "Stop animating dropped items you cannot see",
+
+  "fpsbooster.config.batchChunkUpdates": "Batch chunk updates",
+  "fpsbooster.config.batchChunkUpdates.tooltip": "Combine multiple block changes in the same frame into one chunk rebuild",
+
+  "fpsbooster.config.poolHotVectors": "Reuse hot-path vectors",
+  "fpsbooster.config.poolHotVectors.tooltip": "Reduce garbage collection by reusing temporary math objects"
+}

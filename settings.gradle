@@ -21,6 +21,12 @@ project(':neoforge-26-1-1').projectDir = file('multi/neoforge/26-1-1')
 include('neoforge-26-1-2')
 project(':neoforge-26-1-2').projectDir = file('multi/neoforge/26-1-2')
 
+// Add 1.20.6 → 1.21.11 NeoForge subprojects
+['1-21-11','1-21-10','1-21-9','1-21-8','1-21-7','1-21-6','1-21-5','1-21-4','1-21-3','1-21-2','1-21-1','1-21','1-20-6'].each { v ->
+    include("neoforge-${v}")
+    project(":neoforge-${v}").projectDir = file("multi/neoforge/${v}")
+}
+
 // Forge subprojects are standalone — run from within their own folder:
 //   cd multi/forge/26-1-2 && ./gradlew runClient
 // FG 7 doesn't handle composite/parent builds reliably.

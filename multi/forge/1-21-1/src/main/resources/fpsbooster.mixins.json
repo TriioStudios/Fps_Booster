@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.fpsbooster.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "EntityRenderDispatcherMixin",
+    "PauseScreenMixin",
+    "BlockEntityRenderDispatcherMixin",
+    "ParticleEngineMixin",
+    "ItemEntityRendererMixin",
+    "LevelRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
