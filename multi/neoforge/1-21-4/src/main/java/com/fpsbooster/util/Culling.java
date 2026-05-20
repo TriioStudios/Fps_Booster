@@ -15,7 +15,7 @@ public final class Culling {
         Level level = mc.level;
         Entity viewer = mc.player;
         if (level == null || viewer == null) return false;
-        Vec3 eye = mc.gameRenderer.getMainCamera().position();
+        Vec3 eye = mc.gameRenderer.getMainCamera().getPosition();
         if (eye.distanceToSqr(target) < 16.0) return false; // close: don't bother, cheap to render
         HitResult hit = level.clip(new ClipContext(eye, target,
                 ClipContext.Block.VISUAL, ClipContext.Fluid.NONE, viewer));

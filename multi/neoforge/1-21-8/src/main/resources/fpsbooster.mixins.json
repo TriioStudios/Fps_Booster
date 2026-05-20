@@ -7,9 +7,7 @@
   "client": [
     "EntityRenderDispatcherMixin",
     "PauseScreenMixin",
-    "BlockEntityRenderDispatcherMixin",
     "ParticleEngineMixin",
-    "ItemEntityRendererMixin",
     "LevelRendererMixin"
   ],
   "injectors": {
